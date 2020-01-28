@@ -28,7 +28,7 @@ public class Student
     private float totalMarks;
     private float percentage;
     private String result;
-    private LocalDate localDate = LocalDate.of(1993,02,27);
+    //private LocalDate localDate = LocalDate.of(1993,02,27);
     private LocalDate today = LocalDate.now();
 
     public Student(int studentId, String firstName, String lastName, LocalDate birthDate, Gender gender, int[] marks) {
@@ -89,7 +89,7 @@ public class Student
     {
         System.out.println("Student ID : " + studentId);
         System.out.println("Student First Name : " + firstName);
-        System.out.println("Student Last Name :" + lastName);
+        System.out.println("Student Last Name : " + lastName);
         System.out.println("Student Birth Date : " + birthDate);
         System.out.println("Student Age : " + getAge());
         System.out.println("Student Gender : " + gender);
@@ -106,7 +106,7 @@ public class Student
 
    public int  getAge()
     {
-        int age = Period.between(localDate, today).getYears();
+        int age = Period.between(birthDate, today).getYears();
         return age;
         //LocalDate today = LocalDate.now();
         //age = today.getYear() - birthDate.getYear();

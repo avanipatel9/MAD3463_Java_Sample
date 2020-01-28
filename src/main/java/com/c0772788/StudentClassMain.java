@@ -7,15 +7,27 @@ public class StudentClassMain
 {
     public static void main(String[] args)
     {
-        Student s1;
+        Student[] listOfStudents = new Student[2];
 
+        Student s1;
         LocalDate s1BirthDate = LocalDate.of(1993,02,27);
         s1 = new Student(1, "Avani", "Patel", s1BirthDate, Gender.Female, new int[]{90,80,70,85,95});
-        //s1.setData(1, "Avani", "Patel", s1BirthDate, Gender.Female, 80);
+        listOfStudents[0] = s1;
 
-        s1.calculateTotalMarks();
-        s1.calculatePercentage();
-        s1.calculateResult();
-        s1.printData();
+        Student s2;
+        LocalDate s2BirthDate = LocalDate.of(1995,11,27);
+        s2 = new Student(2, "Parth", "Patel", s2BirthDate, Gender.Male, new int[]{20,40,70,55,35});
+        listOfStudents[1] = s2;
+
+        for (Student s : listOfStudents)
+        {
+            s.calculateTotalMarks();
+            s.calculatePercentage();
+            s.calculateResult();
+            s.printData();
+        }
+
+
+
     }
 }

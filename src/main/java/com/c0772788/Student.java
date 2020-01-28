@@ -19,33 +19,25 @@ public class Student
     private String lastName;
     private LocalDate birthDate;
     private Gender gender;
-    private int marks1;
+    /*private int marks1;
     private int marks2;
     private int marks3;
     private int marks4;
-    private int marks5;
+    private int marks5; */
+    private int marks[];
     private float totalMarks;
     private float percentage;
     private String result;
     private LocalDate localDate = LocalDate.of(1993,02,27);
     private LocalDate today = LocalDate.now();
 
-    public Student()
-    {
-
-    }
-
-    public Student(int studentId, String firstName, String lastName, LocalDate birthDate, Gender gender, int marks1, int marks2, int marks3, int marks4, int marks5) {
+    public Student(int studentId, String firstName, String lastName, LocalDate birthDate, Gender gender, int[] marks) {
         this.studentId = studentId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
         this.gender = gender;
-        this.marks1 = marks1;
-        this.marks2 = marks2;
-        this.marks3 = marks3;
-        this.marks4 = marks4;
-        this.marks5 = marks5;
+        this.marks = marks;
     }
 
     public int getStudentId() {
@@ -84,55 +76,32 @@ public class Student
         this.gender = gender;
     }
 
-    public int getMarks1() {
-        return marks1;
+
+    /*public int[] getMarks() {
+        return marks;
     }
 
-    public void setMarks1(int marks1) {
-        this.marks1 = marks1;
-    }
-
-    public int getMarks2() {
-        return marks2;
-    }
-
-    public void setMarks2(int marks2) {
-        this.marks2 = marks2;
-    }
-
-    public int getMarks3() {
-        return marks3;
-    }
-
-    public void setMarks3(int marks3) {
-        this.marks3 = marks3;
-    }
-
-    public int getMarks4() {
-        return marks4;
-    }
-
-    public void setMarks4(int marks4) {
-        this.marks4 = marks4;
-    }
-
-    public int getMarks5() {
-        return marks5;
-    }
-
-    public void setMarks5(int marks5) {
-        this.marks5 = marks5;
-    }
+    public void setMarks(int[] marks) {
+        this.marks = marks;
+    }*/
 
     public void printData()
     {
-        System.out.println("Student ID is " + studentId);
-        System.out.println("Student First Name is " + firstName);
-        System.out.println("Student Last Name is " + lastName);
-        System.out.println("Student Birth Date is " + birthDate);
-        System.out.println("Student Age is " + getAge());
-        System.out.println("Student Gender is " + gender);
+        System.out.println("Student ID : " + studentId);
+        System.out.println("Student First Name : " + firstName);
+        System.out.println("Student Last Name :" + lastName);
+        System.out.println("Student Birth Date : " + birthDate);
+        System.out.println("Student Age : " + getAge());
+        System.out.println("Student Gender : " + gender);
+        for(int i=0;i<marks.length;i++)
+        {
+            System.out.println("Subject " +(i+1) + " : " + marks[i]);
+        }
+
+
         System.out.println("Student Total Marks is " + totalMarks);
+        System.out.println("Percentage is " + percentage);
+        System.out.println("Result is " + result);
     }
 
    public int  getAge()
@@ -142,6 +111,28 @@ public class Student
         //LocalDate today = LocalDate.now();
         //age = today.getYear() - birthDate.getYear();
         //return age;
+    }
+
+
+
+    public void calculateTotalMarks()
+    {
+        float total = 0.0f;
+        for(float mark : marks)
+        {
+            total = total + mark;
+        }
+        this.totalMarks = total;
+    }
+
+    public void calculatePercentage()
+    {
+        this.percentage = this.totalMarks / 5.0f;
+    }
+
+    public void calculateResult()
+    {
+        this.result = this.percentage >=50.0 ? "PASS" : "FAIL";
     }
 
 }

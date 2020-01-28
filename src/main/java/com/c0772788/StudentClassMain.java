@@ -27,6 +27,13 @@ public class StudentClassMain
             s.printData();
         }
 
+        Arithmetic arithmetic = new Arithmetic();
+        System.out.println(arithmetic.add(10,2));
+        System.out.println(arithmetic.add(10,5.0));
+        System.out.println(arithmetic.add(10,2.0f));
+        System.out.println(arithmetic.add("Hello",2));
+        System.out.println(arithmetic.add("Hello",2,2.0f));
+
 
 
     }
